@@ -30,7 +30,7 @@ public class TestDemoQa {
         //$(".react-datepicker__month-select").click();
         $(".react-datepicker__month-select").selectOptionByValue("4");
         $(".react-datepicker__year-select").selectOptionByValue("1991");
-        $x("//*[@id=\"dateOfBirth\"]/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div[7]").click();
+        $(".react-datepicker__day--004").click();
         $("#subjectsInput").setValue("Hindi").pressEnter();
         $("#genterWrapper").$(byText("Male")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
