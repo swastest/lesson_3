@@ -1,10 +1,8 @@
 package guru.qa;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import java.io.File;
 
@@ -45,15 +43,8 @@ public class TestDemoQa {
         $(".table-responsive").shouldHave(text("Aren Karapetyan"), text ("romashka@mail.ru"),
                 text ("Female"), text ("8800200060"), text ("04 May,1991"), text ("Hindi"), text ("Reading"),
                 text ("123.jpg"), text ("Eto to4no Java?"), text ("Uttar Pradesh Merrut"));
-        sleep(1000);
         $("#closeLargeModal").click();
 
-
-
-
-
-
     }
-
 
 }
