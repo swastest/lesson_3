@@ -6,6 +6,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -36,6 +39,15 @@ public class TestDemoQa {
         $("#currentAddress").setValue("Eto to4no Java?");
         $("#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
         $("#react-select-4-input").setValue("Merrut").pressEnter();
+        $("input#uploadPicture").uploadFile(new File("src/test/resources/123.jpg"));
+        $("#submit").click();
+
+        $(".table-responsive").shouldHave(text("Aren Karapetyan"), text ("romashka@mail.ru"),
+                text ("Female"), text ("8800200060"), text ("04 May,1991"), text ("Hindi"), text ("Reading"),
+                text ("123.jpg"), text ("Eto to4no Java?"), text ("Uttar Pradesh Merrut"));
+        sleep(1000);
+        $("#closeLargeModal").click();
+
 
 
 
