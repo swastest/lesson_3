@@ -32,7 +32,7 @@ public class TestDemoQa {
         $(".react-datepicker__year-select").selectOptionByValue("1991");
         $x("//*[@id=\"dateOfBirth\"]/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div[7]").click();
         $("#subjectsInput").setValue("Hindi").pressEnter();
-        $("#genterWrapper").$(byText("Female")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#currentAddress").setValue("Eto to4no Java?");
         $("#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
@@ -41,7 +41,7 @@ public class TestDemoQa {
         $("#submit").click();
 
         $(".table-responsive").shouldHave(text("Aren Karapetyan"), text ("romashka@mail.ru"),
-                text ("Female"), text ("8800200060"), text ("04 May,1991"), text ("Hindi"), text ("Reading"),
+                text ("Male"), text ("8800200060"), text ("04 May,1991"), text ("Hindi"), text ("Reading"),
                 text ("123.jpg"), text ("Eto to4no Java?"), text ("Uttar Pradesh Merrut"));
         $("#closeLargeModal").click();
 
