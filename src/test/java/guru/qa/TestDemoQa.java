@@ -22,6 +22,11 @@ public class TestDemoQa {
     @Test
     void  Test1 () {
         open("/automation-practice-form");
+       // executeJavaScript("document.querySelector(\"footer\").hidden = 'true';document.querySelector(\"#fixedban\").hidden = 'true'");   -удаление футера
+
+        // executeJavaScript("$('footer').remove()");
+        //        executeJavaScript("$('#fixedban').remove()");  - еще вариант убрать фуддер и баннер рекламы
+
         $("#firstName").setValue("Aren");
         $("#lastName").setValue("Karapetyan");
         $("#userEmail").setValue("romashka@mail.ru");
@@ -48,3 +53,10 @@ public class TestDemoQa {
     }
 
 }
+
+
+///// Проверки корректности внесённых данных
+//        $(".table-responsive").shouldHave(text("Student Name	" + name + " Zyryanov"),
+//                text("Mobile 8982145978"), text("Picture	1.PNG"), text("Student Email Zyryanovvm@rambler.ru"),
+//                text("Gender Female"), text("Date of Birth 15 January,1995"), text("Subjects English"),
+//                text("Hobbies Music"), text("Address Lenina street 11"), text("State and City NCR Delhi"));
