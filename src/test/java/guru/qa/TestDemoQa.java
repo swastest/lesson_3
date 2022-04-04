@@ -1,6 +1,7 @@
 package guru.qa;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -22,6 +23,7 @@ public class TestDemoQa {
     @Test
     void  Test1 () {
         open("/automation-practice-form");
+       /// Selenide.zoom(0.65);
        // executeJavaScript("document.querySelector(\"footer\").hidden = 'true';document.querySelector(\"#fixedban\").hidden = 'true'");   -удаление футера
 
         // executeJavaScript("$('footer').remove()");
