@@ -22,6 +22,18 @@ public class TestDemoQa {
 
     @Test
     void  Test1 () {
+        String firstName = "Aren";
+        String lastName = "Karapetyan";
+        String email = "romashka@mail.ru";
+        String tel = "8800200060";
+        String subjectsInput = "Hindi";
+        String gender = "Male";
+        String hobby = "Reading";
+        String currentAddress = "Eto to4no Java?";
+        String state = "Uttar Pradesh";
+        String city = "Merrut";
+
+
         open("/automation-practice-form");
        /// Selenide.zoom(0.65);
        // executeJavaScript("document.querySelector(\"footer\").hidden = 'true';document.querySelector(\"#fixedban\").hidden = 'true'");   -удаление футера
@@ -29,28 +41,39 @@ public class TestDemoQa {
         // executeJavaScript("$('footer').remove()");
         //        executeJavaScript("$('#fixedban').remove()");  - еще вариант убрать фуддер и баннер рекламы
 
-        $("#firstName").setValue("Aren");
-        $("#lastName").setValue("Karapetyan");
-        $("#userEmail").setValue("romashka@mail.ru");
-        $("#userNumber").setValue("8800200060");
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
+        $("#userNumber").setValue(tel);
         $("#dateOfBirthInput").click();
         //$(".react-datepicker__month-select").click();
         $(".react-datepicker__month-select").selectOptionByValue("4");
         $(".react-datepicker__year-select").selectOptionByValue("1991");
         $(".react-datepicker__day--004").click();
-        $("#subjectsInput").setValue("Hindi").pressEnter();
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#currentAddress").setValue("Eto to4no Java?");
-        $("#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
-        $("#react-select-4-input").setValue("Merrut").pressEnter();
+        $("#subjectsInput").setValue(subjectsInput).pressEnter();
+        $("#genterWrapper").$(byText(gender)).click();
+        $("#hobbiesWrapper").$(byText(hobby)).click();
+        $("#currentAddress").setValue(currentAddress);
+        $("#react-select-3-input").setValue(state).pressEnter();
+        $("#react-select-4-input").setValue(city).pressEnter();
         $("input#uploadPicture").uploadFile(new File("src/test/resources/123.jpg"));
+        //  $("#uploadPicture").uploadFromClasspath(imgPath);  альтернатива,
+        //  задать переменную String imgPath = "img/Pushkin.jpg";
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text("Aren Karapetyan"), text ("romashka@mail.ru"),
-                text ("Male"), text ("8800200060"), text ("04 May,1991"), text ("Hindi"), text ("Reading"),
-                text ("123.jpg"), text ("Eto to4no Java?"), text ("Uttar Pradesh Merrut"));
-        $("#closeLargeModal").click();
+        $(".table-responsive").shouldHave(
+                text(firstName+" "+lastName),
+                text (email),
+                text (gender),
+                text (tel),
+                text ("04 May,1991"),
+                text (subjectsInput),
+                text (hobby),
+                text ("123.jpg"),
+                text (currentAddress),
+                text (state+" "+city)
+        );
+     //   $("#closeLargeModal").click();
 
     }
 
