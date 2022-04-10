@@ -4,6 +4,8 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class TestsTests {
     @Test
     void assertTest () {

@@ -1,18 +1,32 @@
 package guru.qa;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static java.lang.String.format;
+import static utils.RandomUtilsStanislavZgashnik.getRandomEmail;
+import static utils.RandomUtilsStanislavZgashnik.getRandomString;
 
-public class TestDemoQa {
+public class TestDemoQaFormWithRandom {
+    String firstName = getRandomString(10),
+            lastName = getRandomString(10),
+            email = getRandomEmail(),
+            tel = "8800200060",
+            subjectsInput = "Hindi",
+            gender = "Male",
+            hobby = "Reading",
+            currentAddress = "Eto to4no Java?",
+            state = "Uttar Pradesh",
+            city = "Merrut";
+    String expectedFullName = format("%s %s", firstName, lastName),
+            fullStateCity = format("%s %s", state, city);
+
+    // String dataBirth
 
     @BeforeAll
     static void setUp() {
@@ -23,19 +37,6 @@ public class TestDemoQa {
 
     @Test
     void  Test1 () {
-        String firstName = "Aren";
-        String lastName = "Karapetyan";
-        String email = "romashka@mail.ru";
-        String tel = "8800200060";
-        String subjectsInput = "Hindi";
-        String gender = "Male";
-        String hobby = "Reading";
-        String currentAddress = "Eto to4no Java?";
-        String state = "Uttar Pradesh";
-        String city = "Merrut";
-       // String dataBirth
-
-
         open("/automation-practice-form");
        /// Selenide.zoom(0.65);
        // executeJavaScript("document.querySelector(\"footer\").hidden = 'true';document.querySelector(\"#fixedban\").hidden = 'true'");   -удаление футера
@@ -67,7 +68,7 @@ public class TestDemoQa {
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(firstName+" "+lastName));
         $(".table-responsive").shouldHave(
-                text(firstName+" "+lastName),
+                text(expectedFullName),
                 text (email),
                 text (gender),
                 text (tel),
@@ -76,7 +77,7 @@ public class TestDemoQa {
                 text (hobby),
                 text ("123.jpg"),
                 text (currentAddress),
-                text (state+" "+city)
+                text (fullStateCity)
         );
      //   $("#closeLargeModal").click();
 
